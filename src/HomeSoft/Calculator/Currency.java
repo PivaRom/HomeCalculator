@@ -1,7 +1,5 @@
 package HomeSoft.Calculator;
 
-import java.util.Date;
-
 /**
  * Created by RiP on 20.01.2017.
  */
@@ -51,7 +49,13 @@ public class Currency extends EntityEx implements ConsolePrintable {
     }
 
     public String toString() {
-        return super.toString();
+        StringBuilder sb = new StringBuilder("");
+        sb.append("Currency{");
+        sb.append("id='" + this.getId() + "'");
+        sb.append(", code='" + this.getCode() + "'");
+        sb.append(", name='" + this.getName() + "'");
+        sb.append("}");
+        return sb.toString();
     }
 
     public void println(){

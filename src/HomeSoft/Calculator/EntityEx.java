@@ -8,12 +8,6 @@ public abstract class EntityEx {
     private String code;
     private String name;
 
-    private void init (){
-        this.id = new Integer(-1);
-        this.code = "";
-        this.name = "";
-    }
-
     public EntityEx(Integer id, String code, String name) {
         this.init();
         this.id = id;
@@ -29,6 +23,12 @@ public abstract class EntityEx {
 
     public EntityEx() {
         this.init();
+    }
+
+    private void init (){
+        this.id = new Integer(-1);
+        this.code = "";
+        this.name = "";
     }
 
     public Integer getId() {
@@ -74,10 +74,12 @@ public abstract class EntityEx {
     }
 
     public String toString() {
-        return "EntityEx{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder("");
+        sb.append("EntityEx{");
+        sb.append("id='" + this.getId() + "'");
+        sb.append(", code='" + this.getCode() + "'");
+        sb.append(", name='" + this.getName() + "'");
+        sb.append("}");
+        return sb.toString();
     }
 }
