@@ -1,0 +1,87 @@
+Index: src/HomeSoft/Calculator/CalculatorTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/HomeSoft/Calculator/CalculatorTest.java	(date 1486421608000)
++++ src/HomeSoft/Calculator/CalculatorTest.java	(revision )
+@@ -25,5 +25,9 @@
+       //cList.readFile(current +"\\"+"Currency.txt");
+       //cList.println();
+ 
++       Account acc = new Account(AccountType.CREDIT,1,"Наличка");
++       acc.println();
++
++
+    }
+ }
+Index: src/HomeSoft/Calculator/Account.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/HomeSoft/Calculator/Account.java	(date 1486421608000)
++++ src/HomeSoft/Calculator/Account.java	(revision )
+@@ -5,7 +5,7 @@
+ /**
+  * Created by RiP on 04.02.2017.//
+  */
+-public abstract class Account extends EntityEx implements ConsolePrintable {
++public class Account extends EntityEx implements ConsolePrintable, Stringable {
+ 
+     private AccountType type;
+ 
+@@ -13,13 +13,13 @@
+         this.type = AccountType.NONE;
+     }
+ 
+-    public Account(Integer id, String code, String name, AccountType type) {
++    public Account(AccountType type, Integer id, String code, String name) {
+         super(id, code, name);
+         this.init();
+         this.type = type;
+     }
+ 
+-    public Account(Integer id, String code, AccountType type) {
++    public Account(AccountType type, Integer id, String code) {
+         super(id, code);
+         this.init();
+         this.type = type;
+@@ -64,9 +64,14 @@
+ 
+     @Override
+     public String toString() {
+-        return "Account{" +
+-                "type=" + type +
+-                '}';
++        StringBuilder sb = new StringBuilder("");
++        sb.append("Account{");
++        sb.append("id='" + this.getId() + "'");
++        sb.append(", code='" + this.getCode() + "'");
++        sb.append(", name='" + this.getName() + "'");
++        sb.append(", type='" + this.type + "'");
++        sb.append("}");
++        return sb.toString();
+     }
+ 
+     public void print() {
+@@ -76,4 +81,19 @@
+     public void println() {
+         System.out.println(this.toString());
+     }
++
++    public String toFile() {
++        String s = GlobalParameter.FILE_FIELD_SEPARATOR;
++        StringBuilder sb = new StringBuilder("");
++        sb.append(this.getId() + s);
++        sb.append(this.getCode() + s);
++        sb.append(this.getName());
++        return sb.toString();
++    }
++
++    public void parseLine(String value) {
++        this.setId(Integer.parseInt(value.split(";")[0]));
++        this.setCode(value.split(";")[1]);
++        this.setName(value.split(";")[2]);
++    }
+ }

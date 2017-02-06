@@ -27,5 +27,8 @@ public class CalculatorTest {
 
        Account acc = new Account(AccountType.DEBIT,1,"Acc1","Acc1");
        acc.println();
+       Account acc2 = new Account(AccountType.CREDIT, 2,"Acc2","Acc2");
+       acc2.println();
+
    }
 }

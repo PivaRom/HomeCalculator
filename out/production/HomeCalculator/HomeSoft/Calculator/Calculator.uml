@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="80.5" y="0.0">HomeSoft.Calculator.EntityEx</node>
+    <node x="423.5" y="89.0">HomeSoft.Calculator.Period</node>
+    <node x="0.0" y="89.0">HomeSoft.Calculator.Account</node>
+    <node x="0.0" y="390.0">HomeSoft.Calculator.ExchangeList</node>
+    <node x="0.0" y="163.0">HomeSoft.Calculator.EntityLog</node>
+    <node x="0.0" y="464.0">HomeSoft.Calculator.EntityHr</node>
+    <node x="0.0" y="242.0">HomeSoft.Calculator.Exchange</node>
+    <node x="97.0" y="89.0">HomeSoft.Calculator.Currency</node>
+    <node x="442.0" y="0.0">HomeSoft.Calculator.Entity</node>
+    <node x="127.0" y="163.0">HomeSoft.Calculator.GlobalParameter</node>
+    <node x="197.0" y="89.0">HomeSoft.Calculator.Person</node>
+    <node x="153.0" y="316.0">HomeSoft.Calculator.AccountType</node>
+    <node x="0.0" y="316.0">HomeSoft.Calculator.CalculatorTest</node>
+    <node x="187.0" y="0.0">HomeSoft.Calculator.ConsolePrintable</node>
+    <node x="302.0" y="89.0">HomeSoft.Calculator.CurrencyList</node>
+    <node x="329.0" y="0.0">HomeSoft.Calculator.FileStorable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="HomeSoft.Calculator.Currency" target="HomeSoft.Calculator.EntityEx">
+      <point x="-20.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Exchange" target="HomeSoft.Calculator.EntityLog">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Period" target="HomeSoft.Calculator.Entity">
+      <point x="16.5" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Period" target="HomeSoft.Calculator.ConsolePrintable">
+      <point x="-16.5" y="-14.5" />
+      <point x="440.0" y="59.0" />
+      <point x="296.8" y="59.0" />
+      <point x="48.80000000000001" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Currency" target="HomeSoft.Calculator.ConsolePrintable">
+      <point x="20.0" y="-14.5" />
+      <point x="157.0" y="69.0" />
+      <point x="223.60000000000002" y="69.0" />
+      <point x="-24.399999999999977" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Account" target="HomeSoft.Calculator.EntityEx">
+      <point x="-19.25" y="-14.5" />
+      <point x="19.25" y="49.0" />
+      <point x="92.66666666666669" y="49.0" />
+      <point x="-24.333333333333314" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Account" target="HomeSoft.Calculator.ConsolePrintable">
+      <point x="19.25" y="-14.5" />
+      <point x="57.75" y="59.0" />
+      <point x="199.20000000000005" y="59.0" />
+      <point x="-48.799999999999955" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Person" target="HomeSoft.Calculator.EntityEx">
+      <point x="-17.0" y="-14.5" />
+      <point x="214.0" y="49.0" />
+      <point x="141.33333333333331" y="49.0" />
+      <point x="24.333333333333314" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.Person" target="HomeSoft.Calculator.ConsolePrintable">
+      <point x="17.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.CurrencyList" target="HomeSoft.Calculator.FileStorable">
+      <point x="24.5" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="HomeSoft.Calculator.CurrencyList" target="HomeSoft.Calculator.ConsolePrintable">
+      <point x="-24.5" y="-14.5" />
+      <point x="326.5" y="69.0" />
+      <point x="272.4" y="69.0" />
+      <point x="24.399999999999977" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="252.0" y="246.5" />
+  <SelectedNodes>
+    <node>HomeSoft.Calculator.Account</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
