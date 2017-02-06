@@ -3,7 +3,7 @@ package HomeSoft.Calculator;
 import java.util.Date;
 
 /**
- * Created by RiP on 04.02.2017.
+ * Created by RiP on 04.02.2017.//
  */
 public abstract class Account extends EntityEx implements ConsolePrintable {
 
