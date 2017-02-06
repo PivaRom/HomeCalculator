@@ -21,9 +21,9 @@ public class CalculatorTest {
       cList.get(0).setId(981);
       cList.println();
 
-      //cList.writeFile(current +"\\"+"Currency.txt");
-      //cList.readFile(current +"\\"+"Currency.txt");
-      //cList.println();
+      cList.writeFile(current +"\\"+"Currency.txt");
+      cList.readFile(current +"\\"+"Currency.txt");
+      cList.println();
 
        Account acc = new Account(AccountType.DEBIT,1,"Acc1","Acc1");
        acc.println();
