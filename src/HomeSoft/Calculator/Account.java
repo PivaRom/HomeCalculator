@@ -1,25 +1,19 @@
 package HomeSoft.Calculator;
 
-import java.util.Date;
-
 /**
  * Created by RiP on 04.02.2017.//
  */
-public abstract class Account extends EntityEx implements ConsolePrintable {
+public abstract class Account extends EntityEx implements ConsolePrintable, Stringable {
 
     private AccountType type;
 
-    private void init(){
-        this.type = AccountType.NONE;
-    }
-
-    public Account(Integer id, String code, String name, AccountType type) {
+    public Account(AccountType type, Integer id, String code, String name) {
         super(id, code, name);
         this.init();
         this.type = type;
     }
 
-    public Account(Integer id, String code, AccountType type) {
+    public Account(AccountType type, Integer id, String code) {
         super(id, code);
         this.init();
         this.type = type;
@@ -34,6 +28,10 @@ public abstract class Account extends EntityEx implements ConsolePrintable {
     public Account() {
         super();
         this.init();
+    }
+
+    private void init(){
+        this.type = AccountType.NONE;
     }
 
     public AccountType getType() {
@@ -62,12 +60,7 @@ public abstract class Account extends EntityEx implements ConsolePrintable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "type=" + type +
-                '}';
-    }
+
 
     public void print() {
         System.out.print(this.toString());
@@ -75,5 +68,34 @@ public abstract class Account extends EntityEx implements ConsolePrintable {
 
     public void println() {
         System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("");
+        sb.append("Account{");
+        sb.append("id='" + this.getId() + "'");
+        sb.append(", code='" + this.getCode() + "'");
+        sb.append(", name='" + this.getName() + "'");
+        sb.append(", type='" + this.type + "'");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public String toFile() {
+        String s = GlobalParameter.FILE_FIELD_SEPARATOR;
+        StringBuilder sb = new StringBuilder("");
+        sb.append(this.getId() + s);
+        sb.append(this.getCode() + s);
+        sb.append(this.getName() + s);
+        sb.append(this.type);
+        return sb.toString();
+    }
+
+    public void parseLine(String value) {
+        this.setId(Integer.parseInt(value.split(";")[0]));
+        this.setCode(value.split(";")[1]);
+        this.setName(value.split(";")[2]);
+        this.setType(AccountType.valueOf(value.split(";")[3]));
     }
 }

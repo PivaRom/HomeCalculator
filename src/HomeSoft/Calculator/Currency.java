@@ -48,6 +48,14 @@ public class Currency extends EntityEx implements ConsolePrintable, Stringable {
         return super.hashCode();
     }
 
+    public void println(){
+        System.out.println(this.toString());
+    }
+
+    public void print(){
+        System.out.print(this.toString());
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder("");
         sb.append("Currency{");
@@ -56,14 +64,6 @@ public class Currency extends EntityEx implements ConsolePrintable, Stringable {
         sb.append(", name='" + this.getName() + "'");
         sb.append("}");
         return sb.toString();
-    }
-
-    public void println(){
-        System.out.println(this.toString());
-    }
-
-    public void print(){
-        System.out.print(this.toString());
     }
 
     public String toFile() {
