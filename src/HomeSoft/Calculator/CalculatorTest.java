@@ -18,7 +18,7 @@ public class CalculatorTest {
 
       cList.readFile(current +"\\"+"Currency.txt");
       cList.println();
-      cList.get(0).setId(980);
+      cList.get(0).setId(981);
 
 
       cList.writeFile(current +"\\"+"Currency.txt");
