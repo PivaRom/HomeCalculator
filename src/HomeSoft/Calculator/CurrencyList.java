@@ -1,6 +1,5 @@
 package HomeSoft.Calculator;
 
-import java.awt.print.Printable;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +7,7 @@ import java.util.Collection;
 /**
  * Created by RiP on 04.02.2017.
  */
-public class CurrencyList extends ArrayList<Currency> implements ConsolePrintable,FileStorable {
+public class CurrencyList extends ArrayList<Currency> implements ConsolePrintable, FileStorable {
     public CurrencyList(int initialCapacity) {
         super(initialCapacity);
     }
@@ -53,7 +52,8 @@ public class CurrencyList extends ArrayList<Currency> implements ConsolePrintabl
                 try{
                     while ((line = br.readLine()) != null) {
                         if(!firstLine){
-                            currency = this.parseLine(line);
+                            currency = new Currency();
+                            currency.parseLine(line);
                             this.add(currency);
                         }
                         if(firstLine){
@@ -84,16 +84,6 @@ public class CurrencyList extends ArrayList<Currency> implements ConsolePrintabl
     public boolean validateFile(String fileName) {
         return false;
     }
-
-    public Currency parseLine(String value) {
-        Currency result = new Currency();
-        result.setId(Integer.parseInt(value.split(";")[0]));
-        result.setCode(value.split(";")[1]);
-        result.setName(value.split(";")[2]);
-        return result;
-    }
-
-
 
     public void print() {
         System.out.print(this.toString());

@@ -3,7 +3,7 @@ package HomeSoft.Calculator;
 /**
  * Created by RiP on 20.01.2017.
  */
-public class Currency extends EntityEx implements ConsolePrintable {
+public class Currency extends EntityEx implements ConsolePrintable, Stringable {
 
     public Currency(Integer id, String code, String name) {
         super(id, code, name);
@@ -73,6 +73,12 @@ public class Currency extends EntityEx implements ConsolePrintable {
         sb.append(this.getCode() + s);
         sb.append(this.getName());
         return sb.toString();
+    }
+
+    public void parseLine(String value) {
+        this.setId(Integer.parseInt(value.split(";")[0]));
+        this.setCode(value.split(";")[1]);
+        this.setName(value.split(";")[2]);
     }
 
 

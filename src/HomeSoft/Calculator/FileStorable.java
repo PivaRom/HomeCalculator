@@ -8,6 +8,4 @@ public interface FileStorable {
     void writeFile(String fileName);
     boolean existFile(String fileName);
     boolean validateFile(String fileName);
-    EntityEx parseLine(String value);
-    String toFile();
 }
