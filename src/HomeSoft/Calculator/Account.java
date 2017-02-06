@@ -3,7 +3,7 @@ package HomeSoft.Calculator;
 /**
  * Created by RiP on 04.02.2017.//
  */
-public abstract class Account extends EntityEx implements ConsolePrintable, Stringable {
+public class Account extends EntityEx implements ConsolePrintable, Stringable {
 
     private AccountType type;
 
