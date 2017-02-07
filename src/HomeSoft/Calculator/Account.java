@@ -88,7 +88,7 @@ public class Account extends EntityEx implements ConsolePrintable, Stringable {
         sb.append(this.getId() + s);
         sb.append(this.getCode() + s);
         sb.append(this.getName() + s);
-        sb.append(this.type);
+        sb.append(this.type.getShortName());
         return sb.toString();
     }
 
@@ -96,6 +96,6 @@ public class Account extends EntityEx implements ConsolePrintable, Stringable {
         this.setId(Integer.parseInt(value.split(";")[0]));
         this.setCode(value.split(";")[1]);
         this.setName(value.split(";")[2]);
-        this.setType(AccountType.valueOf(value.split(";")[3]));
+        this.setType(AccountType.getAccountType(value.split(";")[3]));
     }
 }
