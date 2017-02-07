@@ -12,9 +12,24 @@ public enum ItemType {
         this.shortName = shortName;
     }
 
+    public static ItemType getItemType(String value){
+        ItemType result = ItemType.NONE;
+        for(ItemType it: ItemType.values()){
+            if(value.equals(it.getShortName())){
+                result = it;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
     @Override
     public String toString() {
-        return "ExpenseType{" +
+        return "ItemType{" +
                 "short_name='" + this.shortName + '\'' +
                 "} " + super.toString();
     }
