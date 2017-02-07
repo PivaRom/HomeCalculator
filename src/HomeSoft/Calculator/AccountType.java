@@ -15,13 +15,13 @@ public enum AccountType {
     public static AccountType getAccountType(String value){
         AccountType result = AccountType.NONE;
         for(AccountType at: AccountType.values()){
-            if(at.getShortName() == value){
+            if(value.equals(at.getShortName())){
                 result = at;
                 break;
             }
         }
-        return result
-;    }
+        return result;
+    }
 
     public String getShortName() {
         return shortName;

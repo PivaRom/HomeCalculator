@@ -3,12 +3,12 @@ package HomeSoft.Calculator;
 /**
  * Created by RiP on 2/7/2017.
  */
-public enum CalculationItemType {
+public enum ItemType {
     NONE("N"), INPUT("I"), OUTPUT("O");
 
     private String shortName;
 
-    CalculationItemType(String shortName) {
+    ItemType(String shortName) {
         this.shortName = shortName;
     }
 

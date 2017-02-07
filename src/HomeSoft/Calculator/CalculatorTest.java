@@ -30,5 +30,10 @@ public class CalculatorTest {
        Account acc2 = new Account(AccountType.CREDIT, 2,"Acc2","Acc2");
        acc2.println();
 
+       AccountList aLst = new AccountList();
+       aLst.readFile(current +"\\"+"Account.txt");
+       aLst.println();
+
+
    }
 }

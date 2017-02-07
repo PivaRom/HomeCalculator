@@ -1,3 +1,3 @@
-id;code;name
-1;Koshelek;Koshelek
-2;Privat karta;Privat karta
+id;code;name;type
+1;Koshelek;Koshelek;D
+2;Privat karta;Privat karta;D
