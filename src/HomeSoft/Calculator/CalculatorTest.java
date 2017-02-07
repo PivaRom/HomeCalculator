@@ -34,6 +34,10 @@ public class CalculatorTest {
        aLst.readFile(current +"\\"+"Account.txt");
        aLst.println();
 
+       ItemList iLst = new ItemList();
+       iLst.readFile(current +"\\"+"Item.txt");
+       iLst.println();
+
 
    }
 }
