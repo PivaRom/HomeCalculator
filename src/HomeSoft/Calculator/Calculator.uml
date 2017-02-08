@@ -3,7 +3,7 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="679.848731884058" y="0.0">HomeSoft.Calculator.EntityEx</node>
+    <node x="679.8487318840579" y="0.0">HomeSoft.Calculator.EntityEx</node>
     <node x="95.0" y="0.0">HomeSoft.Calculator.ItemType</node>
     <node x="558.6603260869565" y="109.0">HomeSoft.Calculator.Account</node>
     <node x="211.5" y="109.0">HomeSoft.Calculator.Period</node>
@@ -14,7 +14,7 @@
     <node x="97.22916666666663" y="109.0">HomeSoft.Calculator.Item</node>
     <node x="359.5625" y="198.0">HomeSoft.Calculator.AccountList</node>
     <node x="853.6603260869565" y="198.0">HomeSoft.Calculator.Exchange</node>
-    <node x="753.348731884058" y="109.0">HomeSoft.Calculator.Currency</node>
+    <node x="753.3487318840579" y="109.0">HomeSoft.Calculator.Currency</node>
     <node x="197.0" y="0.0">HomeSoft.Calculator.Entity</node>
     <node x="713.6603260869565" y="198.0">HomeSoft.Calculator.GlobalParameter</node>
     <node x="655.6603260869565" y="109.0">HomeSoft.Calculator.Person</node>
@@ -28,9 +28,9 @@
   <edges>
     <edge source="HomeSoft.Calculator.Currency" target="HomeSoft.Calculator.EntityEx">
       <point x="20.0" y="-14.5" />
-      <point x="813.348731884058" y="49.0" />
+      <point x="813.3487318840579" y="49.0" />
       <point x="740.6820652173913" y="49.0" />
-      <point x="24.333333333333314" y="14.5" />
+      <point x="24.33333333333337" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.Account" target="HomeSoft.Calculator.AccountType">
       <point x="0.0" y="-14.5" />
@@ -39,15 +39,15 @@
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.Item" target="HomeSoft.Calculator.EntityHr">
-      <point x="-18.66666666666663" y="-14.5" />
-      <point x="106.5625" y="89.0" />
+      <point x="-18.66666666666667" y="-14.5" />
+      <point x="106.56249999999994" y="89.0" />
       <point x="37.5" y="89.0" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.GlobalParameter" target="HomeSoft.Calculator.Currency">
       <point x="0.0" y="-14.5" />
       <point x="773.6603260869565" y="178.0" />
-      <point x="783.348731884058" y="178.0" />
+      <point x="783.3487318840579" y="178.0" />
       <point x="-10.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.AccountList" target="HomeSoft.Calculator.ConsolePrintable">
@@ -61,7 +61,7 @@
     <edge source="HomeSoft.Calculator.Exchange" target="HomeSoft.Calculator.Currency">
       <point x="0.0" y="-14.5" />
       <point x="894.6603260869565" y="168.0" />
-      <point x="823.348731884058" y="168.0" />
+      <point x="823.3487318840579" y="168.0" />
       <point x="30.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.CalculatorTest" target="HomeSoft.Calculator.CurrencyList">
@@ -75,13 +75,13 @@
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.Account" target="HomeSoft.Calculator.EntityEx">
-      <point x="25.66666666666667" y="-14.5" />
-      <point x="622.8269927536232" y="89.0" />
-      <point x="692.0153985507246" y="89.0" />
-      <point x="-24.333333333333343" y="14.5" />
+      <point x="25.66666666666663" y="-14.5" />
+      <point x="622.8269927536231" y="89.0" />
+      <point x="692.0153985507245" y="89.0" />
+      <point x="-24.33333333333337" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.Account" target="HomeSoft.Calculator.ConsolePrintable">
-      <point x="-25.66666666666667" y="-14.5" />
+      <point x="-25.66666666666663" y="-14.5" />
       <point x="571.4936594202899" y="79.0" />
       <point x="468.7028985507246" y="79.0" />
       <point x="22.875" y="14.5" />
@@ -101,9 +101,9 @@
       <point x="-19.25" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.CurrencyList" target="HomeSoft.Calculator.Currency">
-      <point x="32.666666666666686" y="-14.5" />
+      <point x="32.66666666666663" y="-14.5" />
       <point x="556.2291666666666" y="178.0" />
-      <point x="763.348731884058" y="178.0" />
+      <point x="763.3487318840579" y="178.0" />
       <point x="-30.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.CalculatorTest" target="HomeSoft.Calculator.Account">
@@ -113,7 +113,7 @@
       <point x="19.25" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.Item" target="HomeSoft.Calculator.ConsolePrintable">
-      <point x="18.66666666666663" y="-14.5" />
+      <point x="18.666666666666657" y="-14.5" />
       <point x="143.89583333333326" y="59.0" />
       <point x="392.4528985507246" y="59.0" />
       <point x="-53.375" y="14.5" />
@@ -129,7 +129,7 @@
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="HomeSoft.Calculator.ItemList" target="HomeSoft.Calculator.FileStorable">
-      <point x="24.66666666666667" y="-14.5" />
+      <point x="24.666666666666686" y="-14.5" />
       <point x="298.9800724637681" y="178.0" />
       <point x="376.0625" y="178.0" />
       <point x="-31.0" y="14.5" />
@@ -154,7 +154,7 @@
     </edge>
     <edge source="HomeSoft.Calculator.Exchange" target="HomeSoft.Calculator.EntityLog">
       <point x="27.33333333333337" y="-14.5" />
-      <point x="921.9936594202899" y="178.0" />
+      <point x="921.9936594202898" y="178.0" />
       <point x="926.9375" y="178.0" />
       <point x="0.0" y="14.5" />
     </edge>
@@ -172,7 +172,7 @@
     </edge>
     <edge source="HomeSoft.Calculator.Currency" target="HomeSoft.Calculator.ConsolePrintable">
       <point x="-20.0" y="-14.5" />
-      <point x="773.348731884058" y="59.0" />
+      <point x="773.3487318840579" y="59.0" />
       <point x="499.2028985507246" y="59.0" />
       <point x="53.375" y="14.5" />
     </edge>
@@ -191,7 +191,7 @@
     <edge source="HomeSoft.Calculator.Person" target="HomeSoft.Calculator.EntityEx">
       <point x="17.0" y="-14.5" />
       <point x="706.6603260869565" y="89.0" />
-      <point x="716.348731884058" y="89.0" />
+      <point x="716.3487318840579" y="89.0" />
       <point x="0.0" y="14.5" />
     </edge>
   </edges>

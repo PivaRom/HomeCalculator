@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by red7 on 2/7/2017.
  */
-public class ItemList extends ArrayList<Item> implements ConsolePrintable, FileStorable {
+public class ItemList extends ArrayList<Item> implements ConsolePrintable, FileStorable, Listable {
 
     public ItemList() {
     }
@@ -87,6 +87,17 @@ public class ItemList extends ArrayList<Item> implements ConsolePrintable, FileS
     @Override
     public void println() {
         System.out.println(this.toString());
+    }
+
+    public Item getByKey(String key){
+        Item result = new Item();
+        for (Item i:this){
+            if(key.equals(i.getCode())){
+                result = i;
+                break;
+            }
+        }
+        return result;
     }
 
 }

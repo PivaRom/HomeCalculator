@@ -7,7 +7,7 @@ import java.util.Collection;
 /**
  * Created by RiP on 04.02.2017.
  */
-public class CurrencyList extends ArrayList<Currency> implements ConsolePrintable, FileStorable {
+public class CurrencyList extends ArrayList<Currency> implements ConsolePrintable, FileStorable, Listable {
     public CurrencyList(int initialCapacity) {
         super(initialCapacity);
     }
@@ -92,4 +92,16 @@ public class CurrencyList extends ArrayList<Currency> implements ConsolePrintabl
     public void println() {
         System.out.println(this.toString());
     }
+
+    public Currency getByKey(String key){
+        Currency result = new Currency();
+        for (Currency c:this){
+            if(key.equals(c.getCode())){
+                result = c;
+                break;
+            }
+        }
+        return result;
+    }
+
 }

@@ -38,6 +38,10 @@ public class CalculatorTest {
        iLst.readFile(current +"\\"+"Item.txt");
        iLst.println();
 
+       OperationList oLst = new OperationList();
+       oLst.readFile(current +"\\"+"Operation.txt",cList,aLst,iLst);
+       oLst.println();
+
 
    }
 }

@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Created by red7 on 2/7/2017.
+ * Created by red7 on 2/8/2017.
  */
-public class AccountList  extends ArrayList<Account> implements ConsolePrintable, FileStorable, Listable {
-    public AccountList() {
+public class OperationList extends ArrayList<Operation> implements ConsolePrintable {
+    public OperationList() {
     }
 
     @Override
@@ -15,8 +15,8 @@ public class AccountList  extends ArrayList<Account> implements ConsolePrintable
         String result ="";
         result  += "AccountList" + "\n";
         result  += "{" + "\n";
-        for (Account a:this) {
-            result += a.toString() + "\n";
+        for (Operation o : this) {
+            result += o.toString() + "\n";
         }
         result  += "}" + "\n";
 
@@ -26,16 +26,16 @@ public class AccountList  extends ArrayList<Account> implements ConsolePrintable
     public String toFile() {
         StringBuilder sb = new StringBuilder("");
         String s =  GlobalParameter.FILE_LINE_SEPARATOR;
-        for (Account a : this) {
-            sb.append(a.toFile() + s);
+        for (Operation o : this) {
+            sb.append(o.toFile() + s);
         }
         return sb.toString();
     }
 
-    public void readFile(String fileName) {
+    public void readFile(String fileName, CurrencyList cList, AccountList aList, ItemList iList ) {
         File f = new File(fileName);
         String line = "";
-        Account account = new Account();
+        Operation oper = new Operation();
         Boolean firstLine = true;
         if(f.exists()){
             this.clear();
@@ -43,9 +43,9 @@ public class AccountList  extends ArrayList<Account> implements ConsolePrintable
                 try{
                     while ((line = br.readLine()) != null) {
                         if(!firstLine){
-                            account = new Account();
-                            account.parseLine(line);
-                            this.add(account);
+                            oper = new Operation();
+                            oper.parseLine(line,cList,aList,iList);
+                            this.add(oper);
                         }
                         if(firstLine){
                             firstLine = false;
@@ -84,16 +84,15 @@ public class AccountList  extends ArrayList<Account> implements ConsolePrintable
         System.out.println(this.toString());
     }
 
-    public Account getByKey(String key){
-        Account result = new Account();
-        for (Account a:this){
-            if(key.equals(a.getCode())){
-                result = a;
+    public Operation getByKey(Integer key){
+        Operation result = new Operation();
+        for (Operation o:this){
+            if(key.equals(o.getId())){
+                result = o;
                 break;
             }
         }
         return result;
     }
-
 
 }
