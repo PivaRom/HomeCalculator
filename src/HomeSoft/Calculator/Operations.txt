@@ -1,5 +1,0 @@
- id;date;item;currecy;baseCurrecy;summ;baseSumm;coeficiaent;fromAccount;toAccount
- 1;01.01.2016;UAH;UAH;100.0;100.0;1.0
- 2;01.01.2016;UAH;UAH;101.0;100.0;1.0
- 3;01.01.2016;UAH;UAH;102.0;100.0;1.0
- 4;01.01.2016;UAH;UAH;103.0;100.0;1.0
