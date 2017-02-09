@@ -13,6 +13,7 @@ public class Account extends EntityEx implements ConsolePrintable, Stringable {
         this.type = type;
     }
 
+
     public Account(AccountType type, Integer id, String code) {
         super(id, code);
         this.init();
@@ -26,7 +27,7 @@ public class Account extends EntityEx implements ConsolePrintable, Stringable {
     }
 
     public Account() {
-        super();
+        super(-1, "NONE", "NO ACCOUNT NAME");
         this.init();
     }
 

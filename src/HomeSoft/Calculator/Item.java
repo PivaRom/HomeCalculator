@@ -6,51 +6,35 @@ package HomeSoft.Calculator;
 public class Item extends EntityHr implements ConsolePrintable, Stringable {
     private ItemType type;
 
-    public Item(Integer id, Integer pid, String code, ItemType type) {
-        super(id, pid, code);
-        this.type = type;
-    }
-
-    public Item(ItemType type) {
+    public Item(EntityHr parent, Integer id, String code, ItemType type) {
+        super(parent, id, code);
         this.type = type;
     }
 
     public Item() {
+        super(null, GlobalParameter.DEFAULT_ID, GlobalParameter.DEFAULT_CODE);
         this.type = ItemType.NONE;
     }
 
-    public ItemType getType() {
-        return type;
-    }
-
-    public void setType(ItemType type) {
-        this.type = type;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Item)) return false;
-        if (!super.equals(o)) return false;
-
-        Item item = (Item) o;
-
-        return getType() == item.getType();
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
-        return result;
+    private void init(){
+        this.type = ItemType.NONE;
     }
 
     @Override
     public String toString() {
-        return "Item{" +
-                "type=" + type +
-                "} " + super.toString();
+        String s = GlobalParameter.FILE_FIELD_SEPARATOR;
+        StringBuilder sb = new StringBuilder("");
+        sb.append("Item ");
+        sb.append("{");
+        sb.append("id=" + this.getId());
+        sb.append(", pid=" + (this.getParent()!=null?this.getParent().getId():"null"));
+        sb.append(", code=" + this.getCode());
+        sb.append(", type=" + this.type.getShortName());
+        sb.append(", level=" + this.getLevel());
+        sb.append(", pathCode=" + this.getPathCode());
+        sb.append(", pathId=" + this.getPathId());
+        sb.append("}");
+        return sb.toString();
     }
 
     @Override
@@ -63,20 +47,16 @@ public class Item extends EntityHr implements ConsolePrintable, Stringable {
         System.out.println(this.toString());
     }
 
-    public String toFile() {
-        String s = GlobalParameter.FILE_FIELD_SEPARATOR;
-        StringBuilder sb = new StringBuilder("");
-        sb.append(this.getId() + s);
-        sb.append(this.getPid() + s);
-        sb.append(this.getCode() + s);
-        sb.append(this.type.getShortName());
-        return sb.toString();
+    @Override
+    public void parseLine(String value) {
+        this.setParent(null);
+        this.setId(GlobalParameter.DEFAULT_ID);
+        this.setCode(GlobalParameter.DEFAULT_CODE);
+        this.init();
     }
 
-    public void parseLine(String value) {
-        this.setId(Integer.parseInt(value.split(";")[0]));
-        this.setPid(Integer.parseInt(value.split(";")[1]));
-        this.setCode(value.split(";")[2]);
-        this.setType(ItemType.getItemType(value.split(";")[3]));
+    @Override
+    public String toFile() {
+        return null;
     }
 }

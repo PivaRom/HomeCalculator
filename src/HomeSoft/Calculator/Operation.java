@@ -153,15 +153,17 @@ public class Operation extends EntityLog implements ConsolePrintable {
     @Override
     public String toString() {
         return "Operation{" +
-                "item=" + item +
-                ", currecy=" + currecy +
-                ", baseCurrecy=" + baseCurrecy +
+                "id=" + super.getId() +
+                ", date=" + super.getDate() +
+                ", item=" + item.getCode() +
+                ", currecy=" + currecy.getCode() +
+                ", baseCurrecy=" + baseCurrecy.getCode() +
                 ", summ=" + summ +
                 ", baseSumm=" + baseSumm +
                 ", coeficiaent=" + coeficiaent +
-                ", fromAccount=" + fromAccount +
-                ", toAccount=" + toAccount +
-                "} " + super.toString();
+                ", fromAccount=" + fromAccount.getCode() +
+                ", toAccount=" + toAccount.getCode() +
+                "} " /*+ super.toString()*/;
     }
 
     @Override
@@ -184,6 +186,8 @@ public class Operation extends EntityLog implements ConsolePrintable {
         this.setItem(iList.getByKey(value.split(";")[2]));
         this.setCurrecy(cList.getByKey(value.split(";")[3]));
         this.setBaseCurrecy(cList.getByKey(value.split(";")[4]));
+        this.setFromAccount(aList.getByKey(value.split(";")[5]));
+        this.setToAccount(aList.getByKey(value.split(";")[6]));
     }
 
     public String toFile() {

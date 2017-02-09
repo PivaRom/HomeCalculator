@@ -1,6 +1,6 @@
 package HomeSoft.Calculator;
 
-import java.util.*;
+import java.util.Date;
 
 
 /**
@@ -12,14 +12,6 @@ public class Exchange extends EntityLog{
     private Double baseSum;
     private Double exchangeSum;
     private Double exchangeCoefficient;
-
-    private void init(){
-        this.baseCurrency = new Currency();
-        this.exchangeCurrency = new Currency();
-        this.baseSum = GlobalParameter.EXCHANGE_BASE_SUMM;
-        this.exchangeSum = new Double(0);
-        this.exchangeCoefficient = new Double(0);
-    }
 
     public Exchange(Integer id, String title, Date date, Currency baseCurrency, Currency exchangeCurrency, Double exchangeSum, Double exchangeCoefficient) {
         super(id, title, date);
@@ -37,6 +29,14 @@ public class Exchange extends EntityLog{
         this.exchangeCurrency = exchangeCurrency;
         this.exchangeSum = exchangeSum;
         this.exchangeCoefficient = exchangeCoefficient;
+    }
+
+    private void init(){
+        this.baseCurrency = new Currency();
+        this.exchangeCurrency = new Currency();
+        this.baseSum = GlobalParameter.BASE_EXCHANGE_SUMM;
+        this.exchangeSum = new Double(0);
+        this.exchangeCoefficient = new Double(0);
     }
 
     public Currency getBaseCurrency() {
