@@ -15,5 +15,10 @@ public class Test {
         i1.println();
         i2.println();
         i3.println();
+
+        AccountList  aList = new AccountList();
+        UI ui = new UI();
+        aList.add(ui.createAccount(aList.size()));
+        aList.println();
    }
 }
