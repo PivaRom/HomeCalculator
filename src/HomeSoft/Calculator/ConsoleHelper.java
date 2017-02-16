@@ -12,10 +12,38 @@ import static java.lang.System.in;
  */
 public class ConsoleHelper {
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(in));
+    public final static void clearConsole()
+    {
+        try
+        {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                Runtime.getRuntime().exec("cls");
+            }
+            else {
+                Runtime.getRuntime().exec("clear");
+            }
+        }
+        catch (final Exception ex) {
+            //  Handle any exceptions.
+        }
+    }
 
     public void printLine(String value){
         System.out.println(value);
+    }
+
+    public void printString(String value){
+        System.out.print(value);
+    }
+
+    public void printResultOk(){
+        this.printLine("[OK]");
+    }
+
+    public void printResultError(){
+        this.printLine("[ERROR]");
     }
 
     public void printLines(ArrayList<String> list){
@@ -25,7 +53,10 @@ public class ConsoleHelper {
     }
 
     public String readLine() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String inputText = "";
+        br = new BufferedReader(new InputStreamReader(in));
+        br.reset();
         try {
             inputText = br.readLine();
         }
@@ -33,7 +64,7 @@ public class ConsoleHelper {
             throw new IOException("Can not read console! " + ex.getMessage());
         }
         finally{
-            //br.close();
+            br.close();
         }
         return inputText;
     }
@@ -42,7 +73,6 @@ public class ConsoleHelper {
         String text = "";
         this.printLine(meassage);
         text = this.readLine();
-        this.printLine("OK");
         return text;
     }
 
@@ -54,9 +84,8 @@ public class ConsoleHelper {
             result = Integer.parseInt(text);
         }
         catch(Exception ex) {
-            new NumberFormatException("Cannot convert string " + text + " to integer." + ex.getMessage());
+            new NumberFormatException("Can not convert string " + text + " to integer." + ex.getMessage());
         }
-        this.printLine("OK");
         return result;
     }
 
@@ -68,32 +97,26 @@ public class ConsoleHelper {
             result = Double.parseDouble(text);
         }
         catch(Exception ex) {
-            new NumberFormatException("Cannot convert string " + text + " to double.");
+            new NumberFormatException("Can not convert string " + text + " to double.");
         }
-        this.printLine("OK");
         return result;
     }
 
-    public void streamClose(){
-        try{
-            this.br.close();
-        }catch(Exception ex) {
-            //nothing
-        }
-    }
-
     public ArrayList<String> readAll() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
         ArrayList<String> inputList = new ArrayList<String>();
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
         try {
             while (br.ready()) {
                 inputList.add(br.readLine());
             }
-        }catch(IOException ex) {
-            new Exception("Can not read console!!!");
         }
+        catch(IOException ex) {
+            new Exception("Can not read console!!!"+ ex.getMessage());
+        }
+
+        //br.close();
+
         return inputList;
     }
-
 
 }
