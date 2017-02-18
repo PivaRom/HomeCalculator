@@ -3,7 +3,12 @@ package HomeSoft.Calculator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import static java.lang.System.in;
 
@@ -12,7 +17,7 @@ import static java.lang.System.in;
  */
 public class ConsoleHelper {
 
-    public final static void clearConsole()
+    public void clear()
     {
         try
         {
@@ -26,7 +31,7 @@ public class ConsoleHelper {
             }
         }
         catch (final Exception ex) {
-            //  Handle any exceptions.
+            System.out.println("[clear console] " + ex.getMessage());
         }
     }
 
@@ -42,36 +47,65 @@ public class ConsoleHelper {
         this.printLine("[OK]");
     }
 
-    public void printResultError(){
-        this.printLine("[ERROR]");
+    public void printResultError(String message){
+        this.printLine("[ERROR]: " + message);
     }
 
-    public void printLines(ArrayList<String> list){
+    public void printLines(List<String> list, String prefix, String suffix){
         for (String s: list){
-            System.out.println(s);
+            System.out.println(prefix + s + suffix);
         }
     }
 
+
     public String readLine() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String inputText = "";
-        br = new BufferedReader(new InputStreamReader(in));
-        br.reset();
+
         try {
+            InputStreamReader isr = new InputStreamReader(in);
+            BufferedReader br = new BufferedReader(isr);
             inputText = br.readLine();
+            if(isr.ready()){
+                isr.close();
+            }
+            if(br.ready()){
+                br.close();
+            }
         }
         catch(IOException ex) {
             throw new IOException("Can not read console! " + ex.getMessage());
         }
-        finally{
-            br.close();
-        }
+
         return inputText;
+    }
+
+    public ArrayList<String> readAll() {
+        ArrayList<String> inputList = new ArrayList<String>();
+        try {
+            InputStreamReader isr = new InputStreamReader(in);
+            BufferedReader br = new BufferedReader(isr);
+            while (br.ready()) {
+                inputList.add(br.readLine());
+            }
+            if(isr.ready()){
+                isr.close();
+            }
+            if(br.ready()){
+                br.close();
+            }
+
+        }
+        catch(IOException ex) {
+            this.printResultError("Can not read multiline console! " + ex.getMessage());
+        }
+        return inputList;
     }
 
     public String inputString(String meassage) throws IOException{
         String text = "";
-        this.printLine(meassage);
+        if(!meassage.isEmpty()) {
+            this.printLine(meassage);
+        }
         text = this.readLine();
         return text;
     }
@@ -79,12 +113,14 @@ public class ConsoleHelper {
     public Integer inputInteger(String meassage) throws IOException{
         String text = "";
         Integer result = 0;
-        text = this.inputString(meassage);
+        if(!meassage.isEmpty()) {
+            this.printLine(meassage);
+        }
         try {
             result = Integer.parseInt(text);
         }
-        catch(Exception ex) {
-            new NumberFormatException("Can not convert string " + text + " to integer." + ex.getMessage());
+        catch(NumberFormatException ex) {
+            this.printResultError("Can not convert string '" + text + "' to integer. " + ex.getMessage());
         }
         return result;
     }
@@ -93,30 +129,35 @@ public class ConsoleHelper {
         String text = "";
         Double result = 0.0D;
         text = this.inputString(meassage);
+        if(!meassage.isEmpty()) {
+            this.printLine(meassage);
+        }
         try {
             result = Double.parseDouble(text);
         }
-        catch(Exception ex) {
-            new NumberFormatException("Can not convert string " + text + " to double.");
+        catch(NumberFormatException ex) {
+            this.printResultError("Can not convert string " + text + " to double. " + ex.getMessage());
         }
         return result;
     }
 
-    public ArrayList<String> readAll() {
-        ArrayList<String> inputList = new ArrayList<String>();
-        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+    public Date inputDate(String meassage) throws IOException{
+        String text = "";
+        Date result = null;
+        text = this.inputString(meassage);
+        DateFormat df = new SimpleDateFormat("dd.MM.YYYY HH24.MI.SS");
+        if(!meassage.isEmpty()) {
+            this.printLine(meassage);
+        }
         try {
-            while (br.ready()) {
-                inputList.add(br.readLine());
-            }
+            result =  df.parse(text);
         }
-        catch(IOException ex) {
-            new Exception("Can not read console!!!"+ ex.getMessage());
+        catch(ParseException ex) {
+            this.printResultError("Can not convert string " + text + " to date. Expect string format '" + "dd.MM.YYYY hh.mi.ss" + "'. " + ex.getMessage());
         }
-
-        //br.close();
-
-        return inputList;
+        return result;
     }
+
 
 }
