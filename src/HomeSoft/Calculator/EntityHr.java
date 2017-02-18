@@ -6,24 +6,42 @@ package HomeSoft.Calculator;
 public abstract class EntityHr {
     private EntityHr parent;
     private Integer id;
+    private Integer pid;
     private String code;
     private String pathId;
     private String pathCode;
     private Integer level;
 
-    public EntityHr(EntityHr parent, Integer id, String code) {
+    public EntityHr(Integer id, Integer pid, String code, EntityHr parent) {
         this.init();
         this.parent = parent;
         this.id = id;
+        this.pid = pid;
         this.code = code;
         this.changePathId();
         this.changePathCode();
         this.changeLevel();
     }
 
+    public EntityHr(Integer id, Integer pid, String code) {
+        this.init();
+        this.parent = null;
+        this.id = id;
+        this.pid = pid;
+        this.code = code;
+        this.changePathId();
+        this.changePathCode();
+        this.changeLevel();
+    }
+
+    private boolean hasParrent(){
+        return (this.parent != null && this.pid == this.parent.getId());
+    }
+
     private void init(){
         this.parent = null;
         this.id = GlobalParameter.DEFAULT_ID;
+        this.pid = GlobalParameter.DEFAULT_ID;
         this.code = GlobalParameter.DEFAULT_CODE;
         this.pathId = GlobalParameter.DEFAULT_PATH_SEPARATOR + this.id;
         this.pathCode = GlobalParameter.DEFAULT_PATH_SEPARATOR + this.code;
@@ -56,7 +74,7 @@ public abstract class EntityHr {
     }
 
     public void changeLevel(){
-        this.level = (this.parent!=null?this.parent.getLevel():-1)+1;
+        this.level = (this.parent != null ? this.parent.getLevel() : -1)+1;
     }
 
     public EntityHr getParent() {
@@ -79,6 +97,14 @@ public abstract class EntityHr {
         this.changePathId();
     }
 
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
     public String getCode() {
         return code;
     }
@@ -99,4 +125,5 @@ public abstract class EntityHr {
     public Integer getLevel() {
         return level;
     }
+
 }

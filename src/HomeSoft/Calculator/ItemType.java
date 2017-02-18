@@ -15,7 +15,7 @@ public enum ItemType {
     public static ItemType getItemType(String value){
         ItemType result = ItemType.NONE;
         for(ItemType it: ItemType.values()){
-            if(value.equals(it.getShortName())){
+            if(value.toUpperCase().equals(it.getShortName().toUpperCase())){
                 result = it;
                 break;
             }

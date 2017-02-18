@@ -58,7 +58,7 @@ public class ConsoleHelper {
     }
 
 
-    public String readLine() throws IOException {
+    public String readLine(){
         String inputText = "";
 
         try {
@@ -73,7 +73,7 @@ public class ConsoleHelper {
             }
         }
         catch(IOException ex) {
-            throw new IOException("Can not read console! " + ex.getMessage());
+            this.printResultError("Can not read console! " + ex.getMessage());
         }
 
         return inputText;
@@ -101,7 +101,7 @@ public class ConsoleHelper {
         return inputList;
     }
 
-    public String inputString(String meassage) throws IOException{
+    public String inputString(String meassage){
         String text = "";
         if(!meassage.isEmpty()) {
             this.printLine(meassage);
@@ -110,7 +110,7 @@ public class ConsoleHelper {
         return text;
     }
 
-    public Integer inputInteger(String meassage) throws IOException{
+    public Integer inputInteger(String meassage) {
         String text = "";
         Integer result = 0;
         if(!meassage.isEmpty()) {
@@ -125,7 +125,7 @@ public class ConsoleHelper {
         return result;
     }
 
-    public Double inputDouble(String meassage) throws IOException{
+    public Double inputDouble(String meassage){
         String text = "";
         Double result = 0.0D;
         text = this.inputString(meassage);

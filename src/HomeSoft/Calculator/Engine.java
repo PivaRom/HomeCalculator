@@ -20,7 +20,15 @@ public class Engine {
         System.out.println("Hellow User! What would you like?");
         String cmd = "";
         AccountList aList = new AccountList();
-        aList.readFile("production//HomeCalculator//HomeSoft//Calculator/Account.txt");
+        CurrencyList cList = new CurrencyList();
+        ItemList iList = new ItemList();
+
+        String dir = System.getProperty("user.dir");
+        System.out.println("current dir = " + dir);
+
+        aList.readFile(dir + "/out/production//HomeCalculator//HomeSoft//Calculator/Account.txt");
+        cList.readFile(dir + "/out/production//HomeCalculator//HomeSoft//Calculator/Currency.txt");
+        iList.readFile(dir + "/out/production//HomeCalculator//HomeSoft//Calculator/Item.txt");
 
         while ( canExit != true){
             try {
@@ -41,14 +49,14 @@ public class Engine {
             catch(IOException ex){
                 System.out.println("!"+ex.getMessage());
             }
-            if (executeCommand(cmd, aList) == 1){
+            if (executeCommand(cmd, aList, cList, iList) == 1){
                 System.out.println("[OK]");
             }
             cmd="";
         }
     }
 
-    public static int executeCommand(String cmd, AccountList aList){
+    public static int executeCommand(String cmd, AccountList aList, CurrencyList cList, ItemList iList){
         UI ui = new UI();
         int result = 0;
         if(cmd.toUpperCase().equals("EXIT")){
@@ -57,11 +65,24 @@ public class Engine {
             result = 1;
         }
         else if(cmd.toUpperCase().equals("ADD ACCOUNT")){
-            aList.add(ui.createAccount(aList.size()));
+            aList.add(ui.createAccount(aList));
             result = 1;
         }
+        else if(cmd.toUpperCase().equals("PRINT ACCOUNT LIST")){
+            ui.printAccountList(aList);
+            result = 1;
+        }
+        else if(cmd.toUpperCase().equals("PRINT CURRENCY LIST")){
+            ui.printCurrencyList(cList);
+            result = 1;
+        }
+        else if(cmd.toUpperCase().equals("PRINT ITEM LIST")){
+            ui.printItemList(iList);
+            result = 1;
+        }
+
         else{
-            System.out.println("Command '"+cmd+"' is incorrect! Pleas type correct command.");
+            System.out.println("Command '" + cmd + "' is incorrect! Please type correct command.");
         }
 
         return result;
